@@ -44,18 +44,17 @@
         border: 1px solid antiquewhite;
         border-radius: 360px;
         outline: none;
+        float:left;
     }
     @media screen and (max-width: 800px) {
-  .book-list-box-main,.h-main,.input {
+  .book-list-box-main {
     width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
   }
 }
 </style>
 <body>
     <div class="book-list-box-main">
-        <center>
             <input type="text" placeholder="SEARCH BOOK" id="searchInput" class="input">
-        </center>
     <div class="book-list-box">
     <ul id="bookList"></ul>
     </div>
