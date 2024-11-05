@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <head>
+        <title>EDUTIFY|BOOK PANEL</title>
+        <div class="h-main-box">
+            <h2 class="h-main">EDUTIFY (BOOK PANEL)</h2>
+        </div>
+    </head>
+    <style>
+            *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .h-main-box{
+            background-color: antiquewhite;
+            padding: 20px;
+        }
+        .h-main{
+            font-family: "Montserrat", serif;
+            color: black;
+        }
+        .pdf-viewer-main-box{
+            margin: 10px;
+            padding: 10px;
+        }
+</style>
+<body>
+    <center>
+    <div class="pdf-viewer-main-box">
+    <iframe id="pdfViewer" style="width:90%; height:600px;"></iframe>
+    </div>
+    </center>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var pdfUrl = urlParams.get('url');
+            if (pdfUrl) {
+                document.getElementById("pdfViewer").src = pdfUrl;
+            } else {
+                document.body.innerHTML = "<p>No PDF URL provided.</p>";
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+    var sessionToken = localStorage.getItem("sessionToken");
+    if (!sessionToken) {
+        window.location.href = "index.html"; // Redirect to login if no session token
+    }
+});
+    </script>
+</body>
+</html>
