@@ -1,109 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDUTIFY</title>
-    <div class="edutify-h-main">
-        <h2 class="edutify-h2-main">EDUTIFY</h2>
-    </div>
+    <title>ERROR</title>
 </head>
 <style>
-    *{
-        padding: 0px;
-        margin: 0px;
-    }
-    .edutify-h-main{
-        padding: 20px;
-        background-color: antiquewhite;
-    }
-    .edutify-h2-main{
-        color: black;
-        font-family: "Montserrat", serif;
-    }
-    .edutify-login-box-main{
-        padding-top: 10px;
-        margin: 20px;
-        font-family: "Montserrat", serif;
-        width: 250px;
-        background-color: antiquewhite;
-        border-radius: 12.5px;
-    }
-    .edutify-login-box-sub{
-        background-color: white;
-    }
-    .input{
-        width: 90%;
-        height: 25px;
-        margin: 05px;
-        padding: 2px;
-        font-family: "Montserrat", serif;
-    }
-    .btn-login{
-        width: 150px;
-        height: 30px;
-        background-color: antiquewhite;
-        color: black;
-        outline: none;
-        border: none;
-        border-radius: 8px;
-        font-family: "Montserrat", serif;
-    }
-    .btn-login:hover{
-        background-color: aquamarine;
-        transition: 1s;
-    }
+.image1{
+    width: 250px;
+    height: 250px;
+}
+.h-main{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 </style>
 <body>
-    <center>
-        <form id="loginForm">
-        <div class="edutify-login-box-main">
-            <h4 class="login-box-h-main">LOGIN</h4><br>
-            <div class="edutify-login-box-sub">
-                <input type="text" class="input" id="username" name="username" placeholder="USER ID" required/><br>
-                <input type="password" class="input" name="password" id="password" placeholder="PASSWORD" required/><br>
-                <input type="submit" name="login" class="btn-login" value="LOGIN" id="submit">
-            </div>
-        </div>
-        </form>
-        <a href="register.html">REGISTER NOW!</a>
-        <p id="response" class="input"></p>
-    </center>
+    <CENTER>
+        <img src="error.png" class="image1">
+        <h3 class="h-main">ERROR! YOU CAN NOT ACCESS THIS PAGE.<br>AUTHORIZED ACCESS ONLY.</h3>
+   </CENTER>
 </body>
-<script>
-    document.getElementById("loginForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-
-    console.log("Username: " + username);
-    console.log("Password: " + password);
-
-    fetch("https://script.google.com/macros/s/AKfycbwHP7OVhT45FZatKUuuSQribE4y3mrKj1dXGjq0YlJ6oRtctLYV7Tm46OllVVEID9pt0A/exec", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password)
-    })
-    .then(response => response.text())
-    .then(data => {
-        console.log("Response: " + data);
-        document.getElementById("response").innerText = data;
-        if (data === "Login successful") {
-            var sessionToken = generateSessionToken();
-            console.log("Session Token: " + sessionToken);
-            localStorage.setItem("sessionToken", sessionToken); 
-            window.location.href = "home.html"; // Redirect to the next page
-        }
-    })
-    .catch(error => console.error('Error:', error));
-});
-function generateSessionToken() {
-    return Math.random().toString(36).substr(2); // Generate a random token
-}
-</script>
 </html>
