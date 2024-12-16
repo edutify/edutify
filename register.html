@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Karla:ital,wght@0,200..800;1,200..800&family=Merienda:wght@300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <div class="div-main">
+        <h3 class="h3-div-main">EDUTIFY 2.0</h3>
+    </div>
+</head>
+<style>
+    *{
+        padding: 0px;
+        margin: 0px;
+        font-family: "Montserrat", serif;
+        font-optical-sizing: auto;
+        font-weight: weight;
+        font-style: normal;
+    }
+.div-main{
+padding: 18px;
+margin: 0px;
+background-color: #ff8383;
+color: white;
+}
+
+
+.login-box-main{
+    margin: 15px;
+    width: 250px;
+    background-color: white;
+    padding: 10px;
+    border: solid 2.0px;
+    border-color: #ff8383;
+    border-radius: 10px;
+    color: #ff8383;
+}
+.input{
+    padding: 10px;
+    margin: 5px;
+    border-radius: 24px;
+    outline: none;
+    border: solid 1px;
+}
+
+.submit{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 80px;
+    height: 25px;
+    border: solid 1px;
+    border-radius: 24px;
+    background-color: white;
+    color: red;
+}
+.submit:hover{
+    color: green;
+    transition: 1.5s;
+}
+.register{
+    color:#ff8383;
+}
+.register:hover{
+    color: green;
+    transition: 1.5s;
+}
+</style>
+<body>
+    <center>
+        <form id="registrationForm">
+    <div class="login-box-main">
+        <h4 class="login-h-main">USER REGISTRATION</h4>
+        <div class="login-sub-box-main">
+            <input type="text" placeholder="CREATE USER ID" id="username" class="input" required>
+            <input type="password" placeholder="CREATE PASSWORD" id="password" class="input" required>
+            <input type="text" placeholder="NAME" id="name" class="input" required>
+            <input type="text" placeholder="CONTACT" id="contact" class="input" required>
+            <input type="text" placeholder="EMAIL ID" id="email" class="input" required>
+            <b><button class="submit" id="submit" type="submit">SUBMIT</button></b><br> 
+            <a href="index.html" class="register">LOGIN NOW!</a><br><br>
+            <p id="response"></p>
+        </div>
+    </div>
+    </form>
+    </center>
+    <script>
+       document.getElementById("registrationForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var name = document.getElementById("name").value;
+    var contact = document.getElementById("contact").value;
+    var email = document.getElementById("email").value;
+
+    console.log("Username: " + username);
+    console.log("Password: " + password);
+    console.log("Name: " + name);
+    console.log("Contact: " + contact);
+    console.log("Email: " + email);
+
+    fetch("https://script.google.com/macros/s/AKfycbwxvVrQDbvAHhiq2nztKi_dH3rufSncK9F1ybM3hHVO3q62j_T3TgCVy2YzFz5_SLKO/exec", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password) + "&name=" + encodeURIComponent(name) + "&contact=" + encodeURIComponent(contact) + "&email=" + encodeURIComponent(email)
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("response").innerText = data;
+    })
+    .catch(error => console.error('Error:', error));
+});
+    </script>
+</body>
+</html>
