@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Karla:ital,wght@0,200..800;1,200..800&family=Merienda:wght@300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME|EDUTIFY 2.0</title>
+    <div class="div-main">
+        <h3 class="h3-div-main">EDUTIFY 2.0</h3>
+        <button id="logoutButton" class="btn"><b></b>LOGOUT</b></button>
+    </div>
+</head>
+<style>
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    }
+.div-main{
+padding: 18px;
+margin: 0px;
+background-color: #ff8383;
+color: white;
+position: relative;
+}
+.h3-div-main{
+left: 0px;
+}
+.btn{
+    position: absolute;
+    right: 20px;
+    width: auto;
+    height: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    font-family: "Montserrat", serif;
+    border:solid 0px;
+    background-color: beige;
+}
+.btn:hover{
+    background-color: aquamarine;
+    transition: 1.5s;
+    color: white;
+}
+</style>
+<body>
+    
+</body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    var sessionToken = localStorage.getItem("sessionToken");
+    if (!sessionToken) {
+        window.location.href = "index.html"; // Redirect to login if no session token
+    }
+});
+document.getElementById("logoutButton").addEventListener("click", function() {
+    localStorage.removeItem("sessionToken"); // Clear session token
+    window.location.href = "index.html"; // Redirect to the login page
+});
+    </script>
+</html>
