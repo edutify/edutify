@@ -85,6 +85,13 @@
     }
 
     window.onload = fetchBookData;
+
+    document.addEventListener("DOMContentLoaded", function() {
+    var sessionToken = localStorage.getItem("sessionToken");
+    if (!sessionToken) {
+        window.location.href = "index.html"; // Redirect to login if no session token
+    }
+});
   </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
